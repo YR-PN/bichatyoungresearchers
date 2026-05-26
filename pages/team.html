@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizing Committee - BYRD 2026</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .team-member {
+            text-align: center;
+            background-color: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .member-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 4px solid var(--primary-color);
+            display: block;
+        }
+
+        .member-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.5;
+            margin-bottom: 10px;
+            min-height: 4.5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .member-title {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .member-affiliation {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .member-contact {
+            font-size: 13px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .member-contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .member-contact a:hover {
+            text-decoration: underline;
+        }
+
+        .team-section {
+            margin-bottom: 60px;
+        }
+
+        .team-section h2 {
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .placeholder-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 64px;
+            border: 4px solid var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 20px;
+            }
+
+            .member-image,
+            .placeholder-image {
+                width: 140px;
+                height: 140px;
+            }
+
+            .member-name {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member {
+                padding: 20px;
+            }
+
+            .member-image,
+            .placeholder-image {
+                width: 120px;
+                height: 120px;
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>SciConf 2025</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="call-for-papers.html">Call for Papers</a></li>
+                <li><a href="submit-abstract.html">Submit Abstract</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="team.html" class="active">Team</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <h1>Organizing Committee</h1>
+            <p class="section-intro">Meet the team of dedicated researchers and professionals organizing SciConf 2025.</p>
+
+            <!-- General Chairs -->
+            <div class="team-section">
+                <h2>General Chairs</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="placeholder-image">👩‍🔬</div>
+                        <div class="member-name">
+                            Dr. Jane Marie Doe<br>
+                            General Chair
+                        </div>
+                        <div class="member-title">Professor</div>
+                        <div class="member-affiliation">University of Excellence</div>
+                        <div class="member-bio">
+                            Jane is a leading researcher in her field with over 20 years of experience. She has organized multiple international conferences.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:jane.doe@excellence.edu">jane.doe@excellence.edu</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-image">👨‍🔬</div>
+                        <div class="member-name">
+                            Prof. John Robert Smith<br>
+                            General Chair
+                        </div>
+                        <div class="member-title">Director</div>
+                        <div class="member-affiliation">Institute of Innovation</div>
+                        <div class="member-bio">
+                            John brings extensive experience in conference management and has mentored numerous researchers throughout his career.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:john.smith@innovation.org">john.smith@innovation.org</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Program Chairs -->
+            <div class="team-section">
+                <h2>Program Chairs</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="placeholder-image">👩‍💼</div>
+                        <div class="member-name">
+                            Dr. Alice Sarah Johnson<br>
+                            Program Chair
+                        </div>
+                        <div class="member-title">Associate Professor</div>
+                        <div class="member-affiliation">Research Center A</div>
+                        <div class="member-bio">
+                            Alice specializes in peer review processes and has curated programs for leading international conferences in the field.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:alice.johnson@centera.org">alice.johnson@centera.org</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-image">👨‍💼</div>
+                        <div class="member-name">
+                            Dr. Bob Christopher Wilson<br>
+                            Program Chair
+                        </div>
+                        <div class="member-title">Senior Researcher</div>
+                        <div class="member-affiliation">Research Center B</div>
+                        <div class="member-bio">
+                            Bob coordinates program committees and ensures rigorous peer review standards for all submitted research.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:bob.wilson@centerb.org">bob.wilson@centerb.org</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Local Organizing Committee -->
+            <div class="team-section">
+                <h2>Local Organizing Committee</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="placeholder-image">👩‍🎓</div>
+                        <div class="member-name">
+                            Dr. Emma Louise Williams<br>
+                            Logistics Coordinator
+                        </div>
+                        <div class="member-title">Researcher</div>
+                        <div class="member-affiliation">Paris Institute of Science</div>
+                        <div class="member-bio">
+                            Emma manages venue arrangements, scheduling, and all on-site logistics for the conference.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:emma.williams@paris-science.fr">emma.williams@paris-science.fr</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-image">👨‍🎓</div>
+                        <div class="member-name">
+                            Dr. Michael David Brown<br>
+                            Sponsorship Chair
+                        </div>
+                        <div class="member-title">Project Manager</div>
+                        <div class="member-affiliation">Conference Services Ltd</div>
+                        <div class="member-bio">
+                            Michael coordinates partnerships with sponsors and ensures sustainable funding for the conference.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:michael.brown@confservices.com">michael.brown@confservices.com</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-image">👩‍💻</div>
+                        <div class="member-name">
+                            Dr. Sofia Elena Garcia<br>
+                            Website & Communications
+                        </div>
+                        <div class="member-title">Communications Officer</div>
+                        <div class="member-affiliation">European Science Network</div>
+                        <div class="member-bio">
+                            Sofia manages the conference website, social media, and communications with participants.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:sofia.garcia@euroscience.org">sofia.garcia@euroscience.org</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-image">👨‍💻</div>
+                        <div class="member-name">
+                            Dr. James Patrick Lee<br>
+                            Registration & Attendees
+                        </div>
+                        <div class="member-title">Registrar</div>
+                        <div class="member-affiliation">University of Excellence</div>
+                        <div class="member-bio">
+                            James oversees registration, badges, and ensures smooth check-in for all conference attendees.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:james.lee@excellence.edu">james.lee@excellence.edu</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-image">👩‍🏫</div>
+                        <div class="member-name">
+                            Dr. Rachel Anne Martinez<br>
+                            Academic Affairs
+                        </div>
+                        <div class="member-title">Academic Coordinator</div>
+                        <div class="member-affiliation">International Academic Union</div>
+                        <div class="member-bio">
+                            Rachel coordinates with universities and academic institutions for participant recruitment.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:rachel.martinez@iau.org">rachel.martinez@iau.org</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-image">👨‍🏫</div>
+                        <div class="member-name">
+                            Dr. Thomas Andrew Anderson<br>
+                            Accessibility & Inclusion
+                        </div>
+                        <div class="member-title">Accessibility Officer</div>
+                        <div class="member-affiliation">Inclusive Science Foundation</div>
+                        <div class="member-bio">
+                            Thomas ensures the conference is accessible to all attendees and promotes inclusive practices.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:thomas.anderson@inclusive-sci.org">thomas.anderson@inclusive-sci.org</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advisory Board -->
+            <div class="team-section">
+                <h2>Advisory Board</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="placeholder-image">🧑‍🔬</div>
+                        <div class="member-name">
+                            Prof. Catherine Nicole Thompson<br>
+                            Emeritus Member
+                        </div>
+                        <div class="member-title">Professor Emeritus</div>
+                        <div class="member-affiliation">Cambridge University</div>
+                        <div class="member-bio">
+                            Catherine provides strategic guidance and oversight of the conference from her extensive experience in the field.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:c.thompson@cam.ac.uk">c.thompson@cam.ac.uk</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-image">🧑‍💼</div>
+                        <div class="member-name">
+                            Dr. Marcus Joseph Nielsen<br>
+                            Industry Representative
+                        </div>
+                        <div class="member-title">Chief Scientific Officer</div>
+                        <div class="member-affiliation">TechCorp International</div>
+                        <div class="member-bio">
+                            Marcus ensures industry perspectives are represented and brings practical applications to the conference discussion.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:marcus.nielsen@techcorp.com">marcus.nielsen@techcorp.com</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-image">🧑‍⚖️</div>
+                        <div class="member-name">
+                            Dr. Patricia Elena Morales<br>
+                            Policy & Ethics
+                        </div>
+                        <div class="member-title">Research Ethics Director</div>
+                        <div class="member-affiliation">Global Ethics Initiative</div>
+                        <div class="member-bio">
+                            Patricia advises on research ethics, data governance, and policy implications related to the conference themes.
+                        </div>
+                        <div class="member-contact">
+                            <a href="mailto:patricia.morales@globalethics.org">patricia.morales@globalethics.org</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="info-box" style="margin-top: 50px;">
+                <h3>Get in Touch</h3>
+                <p>Have questions for the organizing committee? Contact us at:</p>
+                <p>
+                    <strong>General Inquiries:</strong> <a href="mailto:info@sciconf2025.org">info@sciconf2025.org</a><br>
+                    <strong>Program Questions:</strong> <a href="mailto:program@sciconf2025.org">program@sciconf2025.org</a><br>
+                    <strong>Submissions:</strong> <a href="mailto:submissions@sciconf2025.org">submissions@sciconf2025.org</a><br>
+                    <strong>Phone:</strong> +33 (0)1 23 45 67 89
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:info@sciconf2025.org">info@sciconf2025.org</a></p>
+                    <p>Phone: +33 (0)1 23 45 67 89</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 International Scientific Conference. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

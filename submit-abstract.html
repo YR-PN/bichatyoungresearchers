@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Abstract - SciConf 2025</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>SciConf 2025</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="call-for-papers.html">Call for Papers</a></li>
+                <li><a href="submit-abstract.html" class="active">Submit Abstract</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <h1>Submit Your Abstract</h1>
+            <p class="section-intro">Please fill out the form below to submit your abstract for the 2025 International Scientific Conference.</p>
+
+            <!-- Instructions -->
+            <div class="info-box">
+                <h3>Before You Submit</h3>
+                <ul>
+                    <li>Ensure your abstract is between 250-500 words</li>
+                    <li>Include all required author information</li>
+                    <li>Verify that your email address is correct (we'll send confirmation here)</li>
+                    <li>Review the <a href="call-for-papers.html">Call for Papers</a> for detailed guidelines</li>
+                </ul>
+            </div>
+
+            <!-- Submission Form -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="form">
+                
+                <!-- Web3Forms Configuration -->
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                <input type="hidden" name="subject" value="New Abstract Submission - SciConf 2025">
+                <input type="hidden" name="from_name" value="SciConf 2025">
+                <input type="hidden" name="redirect" value="https://yoursite.github.io/pages/thank-you.html">
+
+                <!-- Paper Information -->
+                <fieldset>
+                    <legend>Paper Information</legend>
+
+                    <div class="form-group">
+                        <label for="title">Paper Title *</label>
+                        <input type="text" id="title" name="title" required maxlength="300" placeholder="Enter the title of your paper">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="track">Research Track *</label>
+                        <select id="track" name="track" required>
+                            <option value="">-- Select a track --</option>
+                            <option value="Track I">Research Track I: [Your Topic]</option>
+                            <option value="Track II">Research Track II: [Your Topic]</option>
+                            <option value="Track III">Research Track III: [Your Topic]</option>
+                            <option value="Applications">Applications & Case Studies</option>
+                            <option value="Emerging">Emerging Topics & Position Papers</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keywords">Keywords *</label>
+                        <input type="text" id="keywords" name="keywords" required placeholder="e.g., machine learning, optimization, data science (max 5 keywords, separated by commas)">
+                        <small>Provide up to 5 keywords separated by commas</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="abstract">Abstract *</label>
+                        <textarea id="abstract" name="abstract" required rows="10" maxlength="5000" placeholder="Enter your abstract (250-500 words)"></textarea>
+                        <small>250-500 words. Include: background, methods, results, and significance.</small>
+                    </div>
+                </fieldset>
+
+                <!-- Author Information -->
+                <fieldset>
+                    <legend>Corresponding Author</legend>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstname">First Name *</label>
+                            <input type="text" id="firstname" name="firstname" required placeholder="First name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name *</label>
+                            <input type="text" id="lastname" name="lastname" required placeholder="Last name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@institution.org">
+                        <small>We'll send the submission confirmation and updates to this email</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="affiliation">Affiliation (Institution) *</label>
+                        <input type="text" id="affiliation" name="affiliation" required placeholder="University/Organization name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country *</label>
+                        <input type="text" id="country" name="country" required placeholder="Country">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+33 1 23 45 67 89">
+                    </div>
+                </fieldset>
+
+                <!-- Co-Authors -->
+                <fieldset>
+                    <legend>Co-Authors (Optional)</legend>
+                    <p>List all co-authors. Use a new line for each author in the format: Name, Institution, Country</p>
+                    <div class="form-group">
+                        <label for="coauthors">Co-Authors</label>
+                        <textarea id="coauthors" name="coauthors" rows="4" placeholder="John Doe, MIT, USA&#10;Jane Smith, Oxford University, UK"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Additional Information -->
+                <fieldset>
+                    <legend>Additional Information</legend>
+
+                    <div class="form-group">
+                        <label for="presentation">Preferred Presentation Format *</label>
+                        <select id="presentation" name="presentation" required>
+                            <option value="">-- Select format --</option>
+                            <option value="oral">Oral Presentation</option>
+                            <option value="poster">Poster Presentation</option>
+                            <option value="either">Either (no preference)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments">Comments for Organizers</label>
+                        <textarea id="comments" name="comments" rows="3" placeholder="Any additional information or special requests"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- GDPR Compliance -->
+                <fieldset>
+                    <legend>Data Protection</legend>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="consent" name="gdpr_consent" required>
+                        <label for="consent">
+                            I agree that my data will be processed according to the conference 
+                            <a href="privacy.html" target="_blank">privacy policy</a>. I understand that my contact 
+                            information will be used for conference communication only. *
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">
+                            I would like to receive updates about future conferences and related events
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="proceedings" name="proceedings">
+                        <label for="proceedings">
+                            I understand that accepted papers will be published in the conference proceedings
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Spam Protection -->
+                <div style="display: none;">
+                    <input type="checkbox" name="botcheck">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Abstract</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+
+                <p class="form-note">* Required fields</p>
+            </form>
+
+            <!-- Contact Support -->
+            <div class="info-box">
+                <h3>Having Issues?</h3>
+                <p>If you experience any problems submitting your abstract, please contact us at:</p>
+                <p><strong>Email:</strong> <a href="mailto:submissions@sciconf2025.org">submissions@sciconf2025.org</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: <a href="mailto:info@sciconf2025.org">info@sciconf2025.org</a></p>
+                    <p>Phone: +33 (0)1 23 45 67 89</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 International Scientific Conference. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

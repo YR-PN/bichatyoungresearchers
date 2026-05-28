@@ -78,10 +78,12 @@
                             <option value="masters">Masters student</option>
                             <option value="phd">PhD student</option>
                             <option value="postdoc">Post-doctoral fellow</option>
-                            <option value="engineertech">Research engineer or technician</option>
-                            <option value="permresearcher">Permanent researcher or faculty (lower priority)</option>
+                            <option value="engineer-tech">Research engineer or technician</option>
+                            <option value="permanent-researcher">Permanent researcher or faculty (lower priority)</option>
                         </select>
                     </div>
+
+
 
                     <div class="form-group">
                         <label for="keywords">Keywords *</label>
@@ -94,6 +96,12 @@
                         <textarea id="abstract" name="abstract" required rows="10" maxlength="5000" placeholder="Enter your abstract (250-500 words)"></textarea>
                         <small>250-500 words. Include: introduction, methods, results, and significance.</small>
                     </div>
+
+                    <div class="form-group">
+                        <label for="count-words">Number of words (main text) *</label>
+                        <input type="text" id="count-words" name="count-words" required placeholder="Total number of words in main text (should be between 250 and 500).">
+                    </div>
+
                 </fieldset>
 
                 <!-- Author Information -->

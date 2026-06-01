@@ -66,7 +66,7 @@
                             <option value="CRI">CRI</option>
                             <option value="IAME">IAME</option>
                             <option value="LVTS">LVTS</option>
-                            <option value="TETECOU">Tête et Cou</option>
+                            <option value="oral-health">Oral Health (filière Tête et Cou)</option>
                             <option value="Other">Other (email us!)</option>
                         </select>
                     </div>
@@ -80,15 +80,6 @@
                             <option value="postdoc">Post-doctoral fellow</option>
                             <option value="engineer-tech">Research engineer or technician</option>
                             <option value="permanent-researcher">Permanent researcher or faculty (lower priority)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="position">If selected for a poster, would you like us to print it? (Poster should be sent on 21st September) *</label>
-                        <select id="position" name="position" required>
-                            <option value="">-- Select option --</option>
-                            <option value="poster-printing">Yes</option>
-                            <option value="poster-no-printing">No</option>
                         </select>
                     </div>
 
@@ -133,8 +124,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="affiliation">Affiliation (Institution) *</label>
-                        <input type="text" id="affiliation" name="affiliation" required placeholder="University/Organization name">
+                        <label for="affiliation">Affiliation(s) *</label>
+                        <input type="text" id="affiliation" name="affiliation" required placeholder="Team, Lab, University/Organization name">
                     </div>
 
                     <div class="form-group">
@@ -147,10 +138,11 @@
                 <!-- Co-Authors -->
                 <fieldset>
                     <legend>Co-authors (Optional)</legend>
-                    <p>List all co-authors. Use a new line for each author in the format: Name, Institution, Country</p>
+                    <p>List all co-authors. Use a new line for each author in the format:</p>
+                    <p>Name (first and last), team, lab, institution, country</p>
                     <div class="form-group">
                         <label for="coauthors">Co-Authors</label>
-                        <textarea id="coauthors" name="coauthors" rows="4" placeholder="Jean Do, CNRS, France&#10;Jeanne Schmidt, Max Plank Institute for planks, Germany"></textarea>
+                        <textarea id="coauthors" name="coauthors" rows="4" placeholder="Jean Do, MI team, NOS lab, CNRS, France&#10;Jeanne Schmidt, Birch team, SOFT lab, Max Plank Institute for planks, Germany"></textarea>
                     </div>
                 </fieldset>
 
@@ -164,7 +156,25 @@
                             <option value="">-- Select format --</option>
                             <option value="oral">Oral presentation</option>
                             <option value="poster">Poster presentation</option>
-                            <option value="either">Pitch Your Project (180 seconds)</option>
+                            <option value="pyp">Pitch Your Project (180 seconds)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="poster-backup">If your preferred presentation format is unavailable, would you like to present a poster? *</label>
+                        <select id="poster-backup" name="poster-backup" required>
+                            <option value="">-- Select answer --</option>
+                            <option value="poster-backup-yes">Yes</option>
+                            <option value="poster-backup-no">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="position">If selected for a poster, would you like us to print it? (Poster should then be sent on 21st September) *</label>
+                        <select id="position" name="position" required>
+                            <option value="">-- Select option --</option>
+                            <option value="poster-printing">Yes</option>
+                            <option value="poster-no-printing">No</option>
                         </select>
                     </div>
 
@@ -182,14 +192,14 @@
                         <input type="checkbox" id="consent" name="gdpr_consent" required>
                         <label for="consent">
                             I agree that my data will be processed according to the conference 
-                            <a href="privacy.html" target="_blank">privacy policy</a>. I understand that my contact information will be used for conference communication only. *
+                            <a href="privacy.html" target="_blank">privacy policy</a>. I understand that my contact information will be used for conference communication. *
                         </label>
                     </div>
 
                     <div class="form-group checkbox">
                         <input type="checkbox" id="newsletter" name="newsletter">
                         <label for="newsletter">
-                            I would like to receive updates about future conferences and related events
+                            I would like to receive updates about future conferences and other events
                         </label>
                     </div>
 

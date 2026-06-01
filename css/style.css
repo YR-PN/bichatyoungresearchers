@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #bf1d4d;
+    --primary-color: #D62057;
     --primary-dark: #8a1538;
     --secondary-color: #64748b;
     --success-color: #16a34a;
@@ -631,6 +631,8 @@ small {
         grid-template-columns: 1fr;
     }
 }
+
+/*Team page styles*/
 
 .team-grid {
     display: grid;

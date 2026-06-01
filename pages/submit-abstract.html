@@ -50,12 +50,12 @@
                 <input type="hidden" name="from_name" value="BYRD 2026">
                 <input type="hidden" name="redirect" value="https://yr-pn.github.io/youngresearchersparisnord/pages/thank-you.html">
 
-                <!-- Paper Information -->
+                <!-- Abstract Information -->
                 <fieldset>
-                    <legend>Paper Information</legend>
+                    <legend>Abstract Information</legend>
 
                     <div class="form-group">
-                        <label for="title">Paper Title *</label>
+                        <label for="title">Abstract Title *</label>
                         <input type="text" id="title" name="title" required maxlength="300" placeholder="Enter the title of your paper">
                     </div>
 
@@ -83,7 +83,14 @@
                         </select>
                     </div>
 
-
+                    <div class="form-group">
+                        <label for="position">If selected for a poster, would you like us to print it? (Poster should be sent on 21st September) *</label>
+                        <select id="position" name="position" required>
+                            <option value="">-- Select option --</option>
+                            <option value="poster-printing">Yes</option>
+                            <option value="poster-no-printing">No</option>
+                        </select>
+                    </div>
 
                     <div class="form-group">
                         <label for="keywords">Keywords *</label>

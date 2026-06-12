@@ -1,8 +1,8 @@
 (function() {
     // Detect if we're on the home page or in a subdirectory
-    const isHomePage = !window.location.pathname.includes('/pages/');
-    const basePath = isHomePage ? '' : '..';
+    const basePath = !window.location.pathname.includes('/pages/') ? '' : '..';
 
+    // Favicons
     const favicons = [
         { rel: 'icon', type: 'image/x-icon', href: basePath + '/images/favicon/favicon.ico' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: basePath + '/images/favicon/favicon-32x32.png' },
@@ -11,7 +11,6 @@
         { rel: 'manifest', href: basePath + '/images/favicon/site.webmanifest' }
     ];
 
- 
     favicons.forEach(faviconConfig => {
         const link = document.createElement('link');
         link.rel = faviconConfig.rel;
@@ -21,7 +20,7 @@
         document.head.appendChild(link);
     });
 
-
+    // Styling
     const style = document.createElement('style');
     style.textContent = `
         .navbar {
@@ -106,6 +105,7 @@
     `;
     document.head.appendChild(style);
 
+    // Navbar
     const nav = document.createElement('nav');
     nav.className = 'navbar';
     nav.innerHTML = `
@@ -114,17 +114,17 @@
                 <h1>Bichat Young Researchers</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="${isHomePage ? '/' : '../index.html'}">Home</a></li>
+                <li><a href="${basePath}/index.html">Home</a></li>
                 <li>
                     <a href="#" class="dropdown-toggle">BYRD 2026</a>
                     <ul class="dropdown-menu">
-                        <li><a href="${isHomePage ? 'pages/' : ''}register.html">Register</a></li>
-                        <li><a href="${isHomePage ? 'pages/' : ''}call-for-papers.html">Call for Abstracts</a></li>
-                        <li><a href="${isHomePage ? 'pages/' : ''}submit-abstract.html">Submit Abstract</a></li>
-                        <li><a href="${isHomePage ? 'pages/' : ''}schedule.html">BYRD Schedule</a></li>
+                        <li><a href="${basePath}/pages/call-for-papers.html">Call for Abstracts</a></li>
+                        <li><a href="${basePath}/pages/register.html">Register</a></li>
+                        <li><a href="${basePath}/pages/submit-abstract.html">Submit Abstract</a></li>
+                        <li><a href="${basePath}/pages/schedule.html">BYRD Schedule</a></li>
                     </ul>
                 </li>
-                <li><a href="${isHomePage ? 'pages/' : ''}about.html">About us</a></li>
+                <li><a href="${basePath}/pages/about.html">About us</a></li>
             </ul>
         </div>
     `;

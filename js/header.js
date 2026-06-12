@@ -1,4 +1,7 @@
 (function() {
+    // Detect if we're on the home page or in a subdirectory
+    const isHomePage = !window.location.pathname.includes('/pages/');
+    const basePath = isHomePage ? '' : '..';
 
     const favicons = [
         { rel: 'icon', type: 'image/x-icon', href: '../images/favicon/favicon.ico' },
@@ -110,17 +113,17 @@
                 <h1>Bichat Young Researchers</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
+                <li><a href="${isHomePage ? '/' : '../index.html'}">Home</a></li>
                 <li>
                     <a href="#" class="dropdown-toggle">BYRD 2026</a>
                     <ul class="dropdown-menu">
-                        <li><a href="call-for-papers.html">Call for Abstracts</a></li>
-                        <li><a href="register.html">Register</a></li>
-                        <li><a href="submit-abstract.html">Submit Abstract</a></li>
-                        <li><a href="schedule.html">BYRD Schedule</a></li>
+                        <li><a href="${isHomePage ? 'pages/' : ''}register.html">Register</a></li>
+                        <li><a href="${isHomePage ? 'pages/' : ''}call-for-papers.html">Call for Abstracts</a></li>
+                        <li><a href="${isHomePage ? 'pages/' : ''}submit-abstract.html">Submit Abstract</a></li>
+                        <li><a href="${isHomePage ? 'pages/' : ''}schedule.html">BYRD Schedule</a></li>
                     </ul>
                 </li>
-                <li><a href="about.html">About us</a></li>
+                <li><a href="${isHomePage ? 'pages/' : ''}about.html">About us</a></li>
             </ul>
         </div>
     `;

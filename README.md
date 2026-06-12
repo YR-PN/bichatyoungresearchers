@@ -5,21 +5,25 @@ A lightweight, GDPR-compliant conference website for abstract submissions built 
 ## Project Structure
 
 ```
-sciconf2025/
-├── index.html                 # Home page
+youngresearchersparisnord/
+├── index.html                      # Home page
 ├── css/
-│   └── style.css             # Main stylesheet
+│   └── style.css                   # Main stylesheet
+├── js/
+│   ├── header.js                   # Header style and logic
+│   └── style.css                   # Footer style and logic
 ├── pages/
-│   ├── call-for-papers.html  # Call for Papers page
-│   ├── submit-abstract.html  # Abstract submission form
-│   ├── register.html         # Register to BYRD (TODO)
-│   ├── schedule.html         # Conference schedule (WIP)
-│   ├── about.html            # About the association
-│   ├── team.html             # Presentation of the team (WIP)
-│   ├── privacy.html          # Privacy Policy (GDPR)
-│   ├── terms.html            # Terms of Use
-│   └── thank-you.html        # Submission confirmation
-└── README.md                 # This file
+│   ├── privacy.html                # Privacy Policy (GDPR)
+│   ├── terms.html                  # Terms of Use
+│   ├── about.html                  # About the association
+│   ├── team.html                   # Presentation of the team (Very WIP)
+│   ├── schedule.html               # BYRD schedule (WIP)
+│   ├── register.html               # BYRD register form  
+│   ├── register-confirmation.html  # BYRD register confirmation  
+│   ├── call-for-papers.html        # BYRD call for papers
+│   ├── submit-abstract.html        # BYRD abstract submission form
+│   └── submit-confirmation.html    # BYRD submission confirmation
+└── README.md                       # This file
 ```
 
 ## Quick Start

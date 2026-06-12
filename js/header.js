@@ -1,6 +1,6 @@
 (function() {
-    
-const favicons = [
+
+    const favicons = [
         { rel: 'icon', type: 'image/x-icon', href: '../images/favicon/favicon.ico' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../images/favicon/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '../images/favicon/favicon-16x16.png' },

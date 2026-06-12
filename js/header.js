@@ -1,6 +1,9 @@
 (function() {
-    // Detect if we're on the home page or in a subdirectory
-    const basePath = !window.location.pathname.includes('/pages/') ? '' : '..';
+
+    // Detect current page location - dirty but should work locally and on GitHub Pages
+    const currentPath = window.location.pathname;
+    const isSubpage = currentPath.includes('/pages/');
+    const basePath = isSubpage ? '..' : '.';
 
     // Favicons
     const favicons = [

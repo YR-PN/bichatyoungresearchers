@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for BYRD 2026 - Bichat Young Researchers Association</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .conditional-field {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f0f4ff;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .conditional-field.show {
+            display: block;
+        }
+
+        .fieldset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 4px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin-bottom: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <script src="../js/header.js"></script>
+
+    <!-- Main Content -->
+    <section class="section">
+        <div class="container">
+            <div class="content-block">
+                <h2>Bichat Young Researchers Day: Who Should Attend?</h2>
+                <p>Each year, BYRD welcomes:</p>
+                <ul>
+                    <li>Masters students and other interns,</li>
+                    <li>PhD students and postdoctoral researchers,</li>
+                    <li>Research engineers and technicians,</li>
+                    <li>University researchers and faculty (it's bring your PI day!),</li>
+                    <li>Our generous institutional and industrial sponsors.</li>
+                </ul>
+            </div>
+
+            <h1>Register for BYRD 2026</h1>
+            <p class="section-intro">Please fill out the registration form below to confirm your attendance at the 2026 Bichat Young Researchers Day.</p>
+
+            <!-- Registration Form -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="form">
+                
+                <!-- Web3Forms Configuration -->
+                <input type="hidden" name="access_key" value="f2cf7e10-dd98-4432-9778-d15329c727b7">
+                <input type="hidden" name="subject" value="New Registration - BYRD 2026">
+                <input type="hidden" name="from_name" value="BYRD 2026 Registration">
+                <input type="hidden" name="redirect" value="https://yr-pn.github.io/youngresearchersparisnord/pages/registration-confirmation.html">
+
+                <!-- General Information -->
+                <fieldset>
+                    <legend>General Information</legend>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstname">First Name *</label>
+                            <input type="text" id="firstname" name="firstname" required placeholder="First name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name *</label>
+                            <input type="text" id="lastname" name="lastname" required placeholder="Last name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@institution.org">
+                        <small>We'll use this email to communicate with you regarding the conference</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="research-unit">Your lab *</label>
+                        <select id="research-unit" name="research_unit" required>
+                            <option value="">-- Select a lab --</option>
+                            <option value="CRI">CRI</option>
+                            <option value="IAME">IAME</option>
+                            <option value="LVTS">LVTS</option>
+                            <option value="oral-health">Oral Health (filière Tête et Cou)</option>
+                            <option value="other">Other (email us!)</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Career Information -->
+                <fieldset>
+                    <legend>Career Information</legend>
+
+                    <div class="form-group">
+                        <label for="position">Position *</label>
+                        <select id="position" name="position" required onchange="updateConditionalFields()">
+                            <option value="">-- Select your position --</option>
+                            <option value="masters">Masters student</option>
+                            <option value="phd">PhD student</option>
+                            <option value="postdoc">Post-doctoral fellow</option>
+                            <option value="engineer-tech">Research engineer or technician</option>
+                            <option value="permanent-researcher">Permanent researcher or faculty</option>
+                        </select>
+                    </div>
+
+                    <!-- Conditional: Supervisor for Masters and PhD -->
+                    <div id="supervisor-field" class="conditional-field">
+                        <div class="form-group">
+                            <label for="supervisor">Full Name of Your Supervisor *</label>
+                            <input type="text" id="supervisor" name="supervisor" placeholder="e.g., Dr. Jane Smith">
+                            <small>Please provide the full name (first and LAST names) of your research supervisor or PI</small>
+                        </div>
+                    </div>
+
+                    <!-- Conditional: Doctoral School for PhD only -->
+                    <div id="doctoral-school-field" class="conditional-field">
+                        <div class="form-group">
+                            <label for="doctoral-school">Doctoral School (École Doctorale) *</label>
+                            <input type="text" id="doctoral-school" name="doctoral_school" placeholder="e.g., École Doctorale Sorbonne Université">
+                            <small>Name of your doctoral school</small>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Event Participation -->
+                <fieldset>
+                    <legend>Event Participation</legend>
+
+                    <div class="form-group">
+                        <label for="lunch">Would you like to join us for lunch? *</label>
+                        <select id="lunch" name="lunch" required onchange="toggleLunchPreferences()">
+                            <option value="">-- Select answer --</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+
+                    <!-- Conditional: Food preferences if lunch = yes -->
+                    <div id="lunch-preferences" class="conditional-field">
+                        <div class="form-group">
+                            <label for="food-preferences">Food Preferences & Allergies *</label>
+                            <textarea id="food-preferences" name="food_preferences" rows="3" placeholder="Please let us know about any dietary restrictions, allergies, or food preferences (e.g., vegetarian, vegan, gluten-free, nut allergies, etc.)"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Rights & Permissions -->
+                <fieldset>
+                    <legend>Rights & Permissions</legend>
+
+                    <legend>Rights & Permissions</legend>
+
+                    <div class="form-group">
+                        <label for="image-rights">I agree that images and videos taken during the event may be used for promotional purposes (website, social media, future materials) *</label>
+                        <select id="image-rights" name="image_rights" required>
+                            <option value="">-- Select answer --</option>
+                            <option value="yes">Yes, I agree</option>
+                            <option value="no">No, I do not agree</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sponsor-sharing">I agree to share my contact information with event sponsors for future opportunities and communications *</label>
+                        <select id="sponsor-sharing" name="sponsor_sharing" required>
+                            <option value="">-- Select answer --</option>
+                            <option value="yes">Yes, I agree</option>
+                            <option value="no">No, I do not agree</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Jury Participation -->
+                <fieldset>
+                    <legend>Jury Participation (Optional)</legend>
+
+                    <div class="form-group">
+                        <label for="jury-participation">Would you like to participate as a jury member? *</label>
+                        <select id="jury-participation" name="jury_participation" required onchange="toggleJuryFields()">
+                            <option value="">-- Select answer --</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                        <small>Jury members evaluate presentations during the event</small>
+                    </div>
+
+                    <!-- Conditional: Jury details if participation = yes -->
+                    <div id="jury-details" class="conditional-field">
+                        <div class="form-group">
+                            <label for="expertise">Domains of Expertise *</label>
+                            <textarea id="expertise" name="expertise" rows="3" placeholder="List your areas of expertise relevant to research evaluation (e.g., immunology, microbiology, molecular biology, oncology, etc.)"></textarea>
+                            <small>Please describe your research expertise to help us match you with appropriate presentations</small>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Which presentations would you like to evaluate? *</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="radio" id="jury-poster" name="jury_type" value="poster" required>
+                                    <label for="jury-poster">Poster presentations</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="radio" id="jury-oral" name="jury_type" value="oral" required>
+                                    <label for="jury-oral">Oral communications</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="radio" id="jury-either" name="jury_type" value="either" required>
+                                    <label for="jury-either">Either one (no preference)</label>
+                                </div>
+                            </div>
+                            <small>Select one option</small>
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <!-- Additional Comments -->
+                <fieldset>
+                    <legend>Additional Information</legend>
+
+                    <div class="form-group">
+                        <label for="comments">Comments or Special Requests</label>
+                        <textarea id="comments" name="comments" rows="3" placeholder="Any other information you'd like to share with us? (optional)"></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- GDPR Compliance -->
+                <fieldset>
+                    <legend>Data Protection</legend>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="gdpr-consent" name="gdpr_consent" required>
+                        <label for="gdpr-consent">
+                            I agree that my data will be processed according to the 
+                            <a href="privacy.html" target="_blank">privacy policy</a>. I understand that my contact information will be used for event communication and management. *
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">
+                            I would like to receive updates about future BYRD events and other initiatives
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Spam Protection -->
+                <div style="display: none;">
+                    <input type="checkbox" name="botcheck">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Complete Registration</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+
+                <p class="form-note">* Required fields</p>
+            </form>
+
+            <!-- Contact Support -->
+            <div class="info-box">
+                <h3>Questions About Registration?</h3>
+                <p>If you have any issues or questions, please contact us at:</p>
+                <p><strong>Email:</strong> <a href="mailto:youngresearchersparisnord@gmail.com">youngresearchersparisnord@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Conditional Fields -->
+    <script>
+        function updateConditionalFields() {
+            const position = document.getElementById('position').value;
+            const supervisorField = document.getElementById('supervisor-field');
+            const doctoralSchoolField = document.getElementById('doctoral-school-field');
+            const supervisorInput = document.getElementById('supervisor');
+            const doctoralSchoolInput = document.getElementById('doctoral-school');
+
+            // Hide all conditional fields and reset required attribute
+            supervisorField.classList.remove('show');
+            doctoralSchoolField.classList.remove('show');
+            supervisorInput.removeAttribute('required');
+            doctoralSchoolInput.removeAttribute('required');
+
+            // Show supervisor field for Masters and PhD students
+            if (position === 'masters' || position === 'phd') {
+                supervisorField.classList.add('show');
+                supervisorInput.setAttribute('required', 'required');
+            }
+
+            // Show doctoral school field for PhD students only
+            if (position === 'phd') {
+                doctoralSchoolField.classList.add('show');
+                doctoralSchoolInput.setAttribute('required', 'required');
+            }
+        }
+
+        function toggleLunchPreferences() {
+            const lunch = document.getElementById('lunch').value;
+            const lunchPreferences = document.getElementById('lunch-preferences');
+            const foodPreferencesInput = document.getElementById('food-preferences');
+
+            if (lunch === 'yes') {
+                lunchPreferences.classList.add('show');
+                foodPreferencesInput.setAttribute('required', 'required');
+            } else {
+                lunchPreferences.classList.remove('show');
+                foodPreferencesInput.removeAttribute('required');
+            }
+        }
+
+        function toggleJuryFields() {
+            const juryParticipation = document.getElementById('jury-participation').value;
+            const juryDetails = document.getElementById('jury-details');
+            const expertiseInput = document.getElementById('expertise');
+            const juryCheckboxes = document.querySelectorAll('input[name="jury_type"]');
+
+            if (juryParticipation === 'yes') {
+                juryDetails.classList.add('show');
+                expertiseInput.setAttribute('required', 'required');
+            } else {
+                juryDetails.classList.remove('show');
+                expertiseInput.removeAttribute('required');
+                // Uncheck jury type checkboxes
+                juryCheckboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateConditionalFields();
+            toggleLunchPreferences();
+            toggleJuryFields();
+        });
+    </script>
+
+    <!-- Footer -->
+    <script src="../js/footer.js"></script>
+
+</body>
+</html>

@@ -23,6 +23,15 @@ youngresearchersparisnord/
 │   ├── call-for-papers.html        # BYRD call for papers
 │   ├── submit-abstract.html        # BYRD abstract submission form
 │   └── submit-confirmation.html    # BYRD submission confirmation
+├── images/
+│   └── favicon/
+│       ├── favicon.ico
+│       ├── favicon-16x16.png
+│       ├── favicon-32x32.png
+│       ├── apple-touch-icon.png
+│       ├── android-chrome-192x192.png
+│       ├── android-chrome-512x512.png
+│       └── site.webmanifest
 └── README.md                       # This file
 ```
 

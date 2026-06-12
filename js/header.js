@@ -1,4 +1,23 @@
 (function() {
+    
+const favicons = [
+        { rel: 'icon', type: 'image/x-icon', href: '../images/favicon/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../images/favicon/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '../images/favicon/favicon-16x16.png' },
+        { rel: 'apple-touch-icon', href: '../images/favicon/apple-touch-icon.png' },
+        { rel: 'manifest', href: '../images/favicon/site.webmanifest' }
+    ];
+ 
+    favicons.forEach(faviconConfig => {
+        const link = document.createElement('link');
+        link.rel = faviconConfig.rel;
+        if (faviconConfig.type) link.type = faviconConfig.type;
+        if (faviconConfig.sizes) link.sizes = faviconConfig.sizes;
+        link.href = faviconConfig.href;
+        document.head.appendChild(link);
+    });
+
+
     const style = document.createElement('style');
     style.textContent = `
         .navbar {

@@ -4,12 +4,13 @@
     const basePath = isHomePage ? '' : '..';
 
     const favicons = [
-        { rel: 'icon', type: 'image/x-icon', href: '../images/favicon/favicon.ico' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '../images/favicon/favicon-32x32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '../images/favicon/favicon-16x16.png' },
-        { rel: 'apple-touch-icon', href: '../images/favicon/apple-touch-icon.png' },
-        { rel: 'manifest', href: '../images/favicon/site.webmanifest' }
+        { rel: 'icon', type: 'image/x-icon', href: basePath + '/images/favicon/favicon.ico' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: basePath + '/images/favicon/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: basePath + '/images/favicon/favicon-16x16.png' },
+        { rel: 'apple-touch-icon', href: basePath + '/images/favicon/apple-touch-icon.png' },
+        { rel: 'manifest', href: basePath + '/images/favicon/site.webmanifest' }
     ];
+
  
     favicons.forEach(faviconConfig => {
         const link = document.createElement('link');

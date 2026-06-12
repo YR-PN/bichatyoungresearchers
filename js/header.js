@@ -93,7 +93,7 @@
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li>
-                    <a href="#" class="dropdown-toggle">Event</a>
+                    <a href="#" class="dropdown-toggle">BYRD 2026</a>
                     <ul class="dropdown-menu">
                         <li><a href="call-for-papers.html">Call for Abstracts</a></li>
                         <li><a href="register.html">Register</a></li>

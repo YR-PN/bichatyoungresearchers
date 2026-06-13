@@ -24,7 +24,7 @@ youngresearchersparisnord/
 │   ├── submit-abstract.html        # BYRD abstract submission form
 │   └── submit-confirmation.html    # BYRD submission confirmation
 ├── images/
-│   └── favicon/
+│   └── favicon/                    # Browser tab icon
 │       ├── favicon.ico
 │       ├── favicon-16x16.png
 │       ├── favicon-32x32.png

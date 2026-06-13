@@ -1,11 +1,24 @@
 (function() {
-
-    // Detect current page location - dirty but should work locally and on GitHub Pages
+    // Detect current page location and build correct base path
     const currentPath = window.location.pathname;
-    const isSubpage = currentPath.includes('/pages/');
-    const basePath = isSubpage ? '..' : '.';
+    const isSubpage = currentPath.includes('/pages/') || currentPath.endsWith('register.html') || 
+                      currentPath.endsWith('call-for-papers.html') || currentPath.endsWith('submit-abstract.html') || 
+                      currentPath.endsWith('schedule.html') || currentPath.endsWith('about.html') ||
+                      currentPath.endsWith('privacy.html') || currentPath.endsWith('terms.html') ||
+                      currentPath.endsWith('team.html') || currentPath.endsWith('thank-you.html') ||
+                      currentPath.endsWith('registration-confirmation.html');
+    
+    // For local files and GitHub Pages subdirectories
+    let basePath;
+    if (currentPath.includes('bichatyoungresearchers')) {
+        // GitHub Pages subdirectory
+        basePath = '/bichatyoungresearchers';
+    } else {
+        // Local file system - use relative paths
+        basePath = isSubpage ? '..' : '.';
+    }
 
-    // Favicons
+    // Add favicon set to head
     const favicons = [
         { rel: 'icon', type: 'image/x-icon', href: basePath + '/images/favicon/favicon.ico' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: basePath + '/images/favicon/favicon-32x32.png' },
@@ -23,7 +36,6 @@
         document.head.appendChild(link);
     });
 
-    // Styling
     const style = document.createElement('style');
     style.textContent = `
         .navbar {
@@ -65,6 +77,7 @@
             transition: color 0.2s;
             border-bottom: 3px solid transparent;
             padding-bottom: 5px;
+            cursor: pointer;
         }
         .nav-links a:hover {
             color: #d62057;
@@ -89,6 +102,9 @@
             z-index: 999;
             min-width: 200px;
         }
+        .dropdown-menu.show {
+            display: block;
+        }
         .dropdown-menu li {
             margin: 0;
             padding: 0;
@@ -99,16 +115,93 @@
             color: #1e293b;
             border-bottom: none;
             white-space: nowrap;
+            cursor: pointer;
         }
         .dropdown-menu a:hover {
             background-color: #f8fafc;
             color: #d62057;
             border-bottom: none;
         }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 24px;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background-color: #d62057;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background-color: #ffffff;
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+                margin: 0;
+                transition: left 0.3s;
+                z-index: 998;
+                align-items: flex-start;
+                overflow-y: auto;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .nav-links > li {
+                width: 100%;
+            }
+            .nav-links a {
+                display: block;
+                padding: 12px 0;
+                border-bottom: none;
+            }
+            .dropdown-menu {
+                position: static;
+                display: none;
+                box-shadow: none;
+                border: none;
+                padding: 10px 0 10px 20px;
+                background-color: transparent;
+                margin-top: 0;
+                top: auto;
+            }
+            .dropdown-menu.show {
+                display: block;
+            }
+            .dropdown-menu a {
+                padding: 8px 0;
+            }
+        }
     `;
     document.head.appendChild(style);
 
-    // Navbar
     const nav = document.createElement('nav');
     nav.className = 'navbar';
     nav.innerHTML = `
@@ -116,15 +209,20 @@
             <div class="nav-brand">
                 <h1>Bichat Young Researchers</h1>
             </div>
+            <button class="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="${basePath}/index.html">Home</a></li>
                 <li>
-                    <a href="#" class="dropdown-toggle">BYRD 2026 conference</a>
+                    <a href="#" class="dropdown-toggle">BYRD 2026</a>
                     <ul class="dropdown-menu">
                         <li><a href="${basePath}/pages/call-for-papers.html">Call for Abstracts</a></li>
                         <li><a href="${basePath}/pages/register.html">Register</a></li>
                         <li><a href="${basePath}/pages/submit-abstract.html">Submit Abstract</a></li>
-                        <li><a href="${basePath}/pages/schedule.html">Schedule</a></li>
+                        <li><a href="${basePath}/pages/schedule.html">BYRD Schedule</a></li>
                     </ul>
                 </li>
                 <li><a href="${basePath}/pages/about.html">About us</a></li>
@@ -134,17 +232,48 @@
 
     document.body.insertBefore(nav, document.body.firstChild);
 
-    const toggle = nav.querySelector('.dropdown-toggle');
-    const menu   = nav.querySelector('.dropdown-menu');
+    // Get all elements
+    const hamburger = nav.querySelector('.hamburger');
+    const navLinks = nav.querySelector('.nav-links');
+    const dropdownToggle = nav.querySelector('.dropdown-toggle');
+    const dropdownMenu = nav.querySelector('.dropdown-menu');
 
-    toggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    // Hamburger menu functionality (mobile)
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 
+    // Close menu when a non-dropdown link is clicked (mobile)
+    const regularLinks = nav.querySelectorAll('.nav-links > li > a:not(.dropdown-toggle)');
+    regularLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Dropdown toggle for both desktop and mobile
+    dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle('show');
+    });
+
+    // Dropdown links should navigate and close menu
+    const dropdownLinks = nav.querySelectorAll('.dropdown-menu a');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Let the link navigate naturally, but close the menu
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            dropdownMenu.classList.remove('show');
+        });
+    });
+
+    // Close dropdown when clicking outside (desktop)
     document.addEventListener('click', function(e) {
         if (!nav.contains(e.target)) {
-            menu.style.display = 'none';
+            dropdownMenu.classList.remove('show');
         }
     });
 })();

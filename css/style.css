@@ -8,14 +8,17 @@
 :root {
     --primary-color: #d62057;
     --primary-dark: #8a1538;
-    --secondary-color: #64748b;
+    --primary-light: #e44e7b;
+    --primary-lighter: #f4b8ca;
+    --secondary-color: #9a7882;
+
     --success-color: #16a34a;
     --danger-color: #dc2626;
     --light-bg: #f8fafc;
     --white: #ffffff;
     --text-dark: #1e293b;
     --text-light: #64748b;
-    --border-color: #e2e8f0;
+    --border-color: #f0dce1;
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
     --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.07);
 }
@@ -176,7 +179,17 @@ body {
 }
 
 .btn-secondary:hover {
-    background-color: #475569;
+    background-color: #718198;
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-tertiary {
+    background-color: var(--primary-light);
+    color: var(--white);
+}
+
+.btn-tertiary:hover {
+    background-color: #b11b48;
     box-shadow: var(--shadow-lg);
 }
 
@@ -292,7 +305,7 @@ small {
 
 /* Info Boxes */
 .info-box {
-    background-color: #dbeafe;
+    background-color: var(--primary-lighter);
     border-left: 4px solid var(--primary-color);
     padding: 20px;
     border-radius: 6px;
@@ -307,7 +320,7 @@ small {
 .info-box p,
 .info-box ul,
 .info-box li {
-    color: #1e40af;
+    color: var(--text-dark);
 }
 
 .info-box a {

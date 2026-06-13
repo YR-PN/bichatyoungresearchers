@@ -219,8 +219,8 @@
                 <li>
                     <a href="#" class="dropdown-toggle">BYRD 2026</a>
                     <ul class="dropdown-menu">
-                        <li><a href="${basePath}/pages/call-for-papers.html">Call for Abstracts</a></li>
                         <li><a href="${basePath}/pages/register.html">Register</a></li>
+                        <li><a href="${basePath}/pages/call-for-papers.html">Call for Abstracts</a></li>
                         <li><a href="${basePath}/pages/submit-abstract.html">Submit Abstract</a></li>
                         <li><a href="${basePath}/pages/schedule.html">BYRD Schedule</a></li>
                     </ul>

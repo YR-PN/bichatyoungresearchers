@@ -601,6 +601,50 @@ small {
     }
 }
 
+/*Form styles*/
+.conditional-field {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f0f4ff;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.conditional-field.show {
+    display: block;
+}
+
+.fieldset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-top: 4px;
+    width: auto;
+    cursor: pointer;
+}
+
+.checkbox-item label {
+    margin-bottom: 0;
+    cursor: pointer;
+    font-weight: normal;
+}
+
 /*Team page styles*/
 
 .team-grid {

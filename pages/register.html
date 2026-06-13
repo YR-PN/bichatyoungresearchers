@@ -5,50 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register for BYRD 2026 - Bichat Young Researchers Association</title>
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .conditional-field {
-            display: none;
-            margin-top: 15px;
-            padding: 15px;
-            background-color: #f0f4ff;
-            border-left: 4px solid var(--primary-color);
-            border-radius: 4px;
-        }
 
-        .conditional-field.show {
-            display: block;
-        }
-
-        .fieldset-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .checkbox-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .checkbox-item input[type="checkbox"] {
-            margin-top: 4px;
-            width: auto;
-            cursor: pointer;
-        }
-
-        .checkbox-item label {
-            margin-bottom: 0;
-            cursor: pointer;
-            font-weight: normal;
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -153,7 +110,7 @@
 
                 <!-- Event Participation -->
                 <fieldset>
-                    <legend>Event Participation</legend>
+                    <legend>Lunch Participation</legend>
 
                     <div class="form-group">
                         <label for="lunch">Would you like to join us for lunch? *</label>
@@ -167,7 +124,7 @@
                     <!-- Conditional: Food preferences if lunch = yes -->
                     <div id="lunch-preferences" class="conditional-field">
                         <div class="form-group">
-                            <label for="food-preferences">Food Preferences & Allergies *</label>
+                            <label for="food-preferences">Food Preferences & Allergies</label>
                             <textarea id="food-preferences" name="food_preferences" rows="3" placeholder="Please let us know about any dietary restrictions, allergies, or food preferences (e.g., vegetarian, vegan, gluten-free, nut allergies, etc.)"></textarea>
                         </div>
                     </div>
@@ -331,10 +288,8 @@
 
             if (lunch === 'yes') {
                 lunchPreferences.classList.add('show');
-                foodPreferencesInput.setAttribute('required', 'required');
             } else {
                 lunchPreferences.classList.remove('show');
-                foodPreferencesInput.removeAttribute('required');
             }
         }
 

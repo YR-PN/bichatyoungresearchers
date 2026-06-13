@@ -59,6 +59,10 @@
             color: #d62057;
             margin: 0;
         }
+        .nav-brand a {
+            text-decoration: none;
+            color: inherit;
+        }
         .nav-links {
             display: flex;
             list-style: none;
@@ -206,14 +210,19 @@
     nav.className = 'navbar';
     nav.innerHTML = `
         <div class="container">
+
             <div class="nav-brand">
-                <h1>Bichat Young Researchers</h1>
+                <a href="${basePath}/index.html">
+                    <h1>Bichat Young Researchers</h1>
+                </a>
             </div>
+
             <button class="hamburger" aria-label="Toggle navigation menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+
             <ul class="nav-links">
                 <li><a href="${basePath}/index.html">Home</a></li>
                 <li>
@@ -227,6 +236,7 @@
                 </li>
                 <li><a href="${basePath}/pages/about.html">About us</a></li>
             </ul>
+            
         </div>
     `;
 

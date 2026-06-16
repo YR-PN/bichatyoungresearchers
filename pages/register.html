@@ -5,39 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register for BYRD 2026 - Bichat Young Researchers Association</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .conditional-field {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f0f4ff;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 4px;
+        }
 
+        .conditional-field.show {
+            display: block;
+        }
+
+        .fieldset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-top: 4px;
+            width: auto;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin-bottom: 0;
+            cursor: pointer;
+            font-weight: normal;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
     <script src="../js/header.js"></script>
+
 
     <!-- Main Content -->
     <section class="section">
         <div class="container">
-            <div class="content-block">
-                <h2>Bichat Young Researchers Day: Who Should Attend?</h2>
-                <p>Each year, BYRD welcomes:</p>
+            <h1>Register for BYRD 2026</h1>
+            <p class="section-intro">Please fill out the registration form below to confirm your attendance at the 2026 Bichat Young Researchers Day.</p>
+
+            <!-- Instructions -->
+            <div class="info-box">
+                <h3>Before You Register</h3>
                 <ul>
-                    <li>Masters students and other interns,</li>
-                    <li>PhD students and postdoctoral researchers,</li>
-                    <li>Research engineers and technicians,</li>
-                    <li>University researchers and faculty (it's bring your PI day!),</li>
-                    <li>Our generous institutional and industrial sponsors.</li>
+                    <li>Have your institutional email and affiliation information ready</li>
+                    <li>If you're a master's or PhD student, have your supervisor's name available</li>
+                    <li>If you're a PhD student, have your doctoral school (école doctorale) name ready</li>
+                    <li>Fields marked with * are required</li>
                 </ul>
             </div>
-
-            <h1>Register for BYRD 2026</h1>
-            <h4>Deadline: October 2, 2026 (23h59 CEST)</h4>
-            <p class="section-intro">Please fill out the registration form below to confirm your attendance at the 2026 Bichat Young Researchers Day.</p>
 
             <!-- Registration Form -->
             <form action="https://api.web3forms.com/submit" method="POST" class="form">
                 
                 <!-- Web3Forms Configuration -->
-                <input type="hidden" name="access_key" value="d5f1db57-a479-42e6-b2b2-6f4d56eada44">
+                <input type="hidden" name="access_key" value="f2cf7e10-dd98-4432-9778-d15329c727b7">
                 <input type="hidden" name="subject" value="New Registration - BYRD 2026">
                 <input type="hidden" name="from_name" value="BYRD 2026 Registration">
-                <input type="hidden" name="redirect" value="https://yr-pn.github.io/bichatyoungresearchers/pages/register-confirmation.html">
+                <input type="hidden" name="redirect" value="https://yr-pn.github.io/bichatyoungresearchers/pages/registration-confirmation.html">
 
                 <!-- General Information -->
                 <fieldset>
@@ -57,7 +98,7 @@
                     <div class="form-group">
                         <label for="email">Email Address *</label>
                         <input type="email" id="email" name="email" required placeholder="your.email@institution.org">
-                        <small>We'll use this email to communicate with you regarding the conference</small>
+                        <small>We'll use this email to communicate event updates to you.</small>
                     </div>
 
                     <div class="form-group">
@@ -94,7 +135,7 @@
                         <div class="form-group">
                             <label for="supervisor">Full Name of Your Supervisor *</label>
                             <input type="text" id="supervisor" name="supervisor" placeholder="e.g., Dr. Jane Smith">
-                            <small>Please provide the full name (first and LAST names) of your research supervisor or PI</small>
+                            <small>Please provide the full name of your research supervisor or PI</small>
                         </div>
                     </div>
 
@@ -110,7 +151,7 @@
 
                 <!-- Event Participation -->
                 <fieldset>
-                    <legend>Lunch Participation</legend>
+                    <legend>Event Participation</legend>
 
                     <div class="form-group">
                         <label for="lunch">Would you like to join us for lunch? *</label>
@@ -126,14 +167,40 @@
                         <div class="form-group">
                             <label for="food-preferences">Food Preferences & Allergies</label>
                             <textarea id="food-preferences" name="food_preferences" rows="3" placeholder="Please let us know about any dietary restrictions, allergies, or food preferences (e.g., vegetarian, vegan, gluten-free, nut allergies, etc.)"></textarea>
+                            <small>We want to ensure we have suitable options for everyone</small>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Cocktail Participation -->
+                <fieldset>
+                    <legend>Social Event</legend>
+
+                    <div class="form-group">
+                        <label for="cocktail">Would you like to participate in a cocktail (<em>apéro</em>) after the conference? *</label>
+                        <select id="cocktail" name="cocktail" required onchange="toggleCocktailVenue()">
+                            <option value="">-- Select answer --</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="maybe">I don't know</option>
+                        </select>
+                    </div>
+
+                    <!-- Conditional: Venue preference if cocktail = yes -->
+                    <div id="cocktail-venue" class="conditional-field">
+                        <div class="form-group">
+                            <label for="venue">Where would you rather attend it? *</label>
+                            <select id="venue" name="venue">
+                                <option value="">-- Select location --</option>
+                                <option value="faculty">Faculty site</option>
+                                <option value="external">External location</option>
+                            </select>
                         </div>
                     </div>
                 </fieldset>
 
                 <!-- Rights & Permissions -->
                 <fieldset>
-                    <legend>Rights & Permissions</legend>
-
                     <legend>Rights & Permissions</legend>
 
                     <div class="form-group">
@@ -177,7 +244,6 @@
                             <small>Please describe your research expertise to help us match you with appropriate presentations</small>
                         </div>
 
-
                         <div class="form-group">
                             <label>Which presentations would you like to evaluate? *</label>
                             <div class="checkbox-group">
@@ -196,7 +262,6 @@
                             </div>
                             <small>Select one option</small>
                         </div>
-
                     </div>
                 </fieldset>
 
@@ -288,6 +353,7 @@
 
             if (lunch === 'yes') {
                 lunchPreferences.classList.add('show');
+                // Field is optional - no required attribute
             } else {
                 lunchPreferences.classList.remove('show');
             }
@@ -297,7 +363,6 @@
             const juryParticipation = document.getElementById('jury-participation').value;
             const juryDetails = document.getElementById('jury-details');
             const expertiseInput = document.getElementById('expertise');
-            const juryCheckboxes = document.querySelectorAll('input[name="jury_type"]');
 
             if (juryParticipation === 'yes') {
                 juryDetails.classList.add('show');
@@ -305,10 +370,20 @@
             } else {
                 juryDetails.classList.remove('show');
                 expertiseInput.removeAttribute('required');
-                // Uncheck jury type checkboxes
-                juryCheckboxes.forEach(checkbox => {
-                    checkbox.checked = false;
-                });
+            }
+        }
+
+        function toggleCocktailVenue() {
+            const cocktail = document.getElementById('cocktail').value;
+            const cocktailVenue = document.getElementById('cocktail-venue');
+            const venueInput = document.getElementById('venue');
+
+            if (cocktail === 'yes') {
+                cocktailVenue.classList.add('show');
+                venueInput.setAttribute('required', 'required');
+            } else {
+                cocktailVenue.classList.remove('show');
+                venueInput.removeAttribute('required');
             }
         }
 
@@ -317,11 +392,10 @@
             updateConditionalFields();
             toggleLunchPreferences();
             toggleJuryFields();
+            toggleCocktailVenue();
         });
     </script>
 
-    <!-- Footer -->
     <script src="../js/footer.js"></script>
-
 </body>
 </html>

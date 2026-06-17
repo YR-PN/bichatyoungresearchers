@@ -11,7 +11,7 @@
             margin-top: 15px;
             padding: 15px;
             background-color: #f0f4ff;
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid var(--border-color);
             border-radius: 4px;
         }
 
@@ -224,10 +224,10 @@
 
                 <!-- Jury Participation -->
                 <fieldset>
-                    <legend>Jury Participation (Optional)</legend>
+                    <legend>Jury Participation</legend>
 
                     <div class="form-group">
-                        <label for="jury-participation">Would you like to participate as a jury member?</label>
+                        <label for="jury-participation">Would you like to participate as a jury member? *</label>
                         <select id="jury-participation" name="jury_participation" required onchange="toggleJuryFields()">
                             <option value="">-- Select answer --</option>
                             <option value="yes">Yes</option>
@@ -248,15 +248,15 @@
                             <label>Which presentations would you like to evaluate? *</label>
                             <div class="checkbox-group">
                                 <div class="checkbox-item">
-                                    <input type="radio" id="jury-poster" name="jury_type" value="poster" required>
+                                    <input type="radio" id="jury-poster" name="jury_type" value="poster">
                                     <label for="jury-poster">Poster presentations</label>
                                 </div>
                                 <div class="checkbox-item">
-                                    <input type="radio" id="jury-oral" name="jury_type" value="oral" required>
+                                    <input type="radio" id="jury-oral" name="jury_type" value="oral">
                                     <label for="jury-oral">Oral communications</label>
                                 </div>
                                 <div class="checkbox-item">
-                                    <input type="radio" id="jury-either" name="jury_type" value="either" required>
+                                    <input type="radio" id="jury-either" name="jury_type" value="either">
                                     <label for="jury-either">Either one (no preference)</label>
                                 </div>
                             </div>
@@ -362,6 +362,7 @@
             const juryParticipation = document.getElementById('jury-participation').value;
             const juryDetails = document.getElementById('jury-details');
             const expertiseInput = document.getElementById('expertise');
+            const juryRadios = document.querySelectorAll('input[name="jury_type"]');
 
             if (juryParticipation === 'yes') {
                 juryDetails.classList.add('show');

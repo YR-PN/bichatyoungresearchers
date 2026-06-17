@@ -367,9 +367,11 @@
             if (juryParticipation === 'yes') {
                 juryDetails.classList.add('show');
                 expertiseInput.setAttribute('required', 'required');
+                juryRadios.forEach(radio => radio.setAttribute('required', 'required'));
             } else {
                 juryDetails.classList.remove('show');
                 expertiseInput.removeAttribute('required');
+                juryRadios.forEach(radio => radio.removeAttribute('required'));
             }
         }
 

@@ -227,7 +227,7 @@
                     <legend>Jury Participation (Optional)</legend>
 
                     <div class="form-group">
-                        <label for="jury-participation">Would you like to participate as a jury member? *</label>
+                        <label for="jury-participation">Would you like to participate as a jury member?</label>
                         <select id="jury-participation" name="jury_participation" required onchange="toggleJuryFields()">
                             <option value="">-- Select answer --</option>
                             <option value="yes">Yes</option>
@@ -353,7 +353,6 @@
 
             if (lunch === 'yes') {
                 lunchPreferences.classList.add('show');
-                // Field is optional - no required attribute
             } else {
                 lunchPreferences.classList.remove('show');
             }

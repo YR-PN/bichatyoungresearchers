@@ -782,3 +782,137 @@ small {
         font-size: 48px;
     }
 }
+
+/* Expandable schedule items (<details class="schedule-item">) */
+details.schedule-item {
+    display: block;            /* override the flex layout of .schedule-item */
+    padding: 0;
+}
+
+details.schedule-item > summary {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    padding: 20px 50px 20px 20px;   /* right padding leaves room for the chevron */
+    cursor: pointer;
+    list-style: none;               /* hide default marker (Firefox/Chrome) */
+    position: relative;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+details.schedule-item > summary::-webkit-details-marker {
+    display: none;                  /* hide default marker (Safari) */
+}
+
+details.schedule-item > summary:hover {
+    background-color: var(--primary-lighter);
+}
+
+details.schedule-item > summary:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: -3px;
+}
+
+/* Chevron */
+details.schedule-item > summary::after {
+    content: "";
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    transform: translateY(-70%) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+details.schedule-item[open] > summary::after {
+    transform: translateY(-30%) rotate(-135deg);
+}
+
+/* Expanded content */
+.schedule-details {
+    margin-left: 175px;             /* aligns with the event title (150px time + 25px gap) */
+    padding: 15px 20px 20px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.schedule-details ul {
+    list-style: none;
+}
+
+.schedule-details li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.schedule-details li:last-child {
+    border-bottom: none;
+}
+
+.schedule-details .speaker {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.schedule-details .lab {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-dark);
+    background-color: var(--primary-lighter);
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+.schedule-details .talk-title {
+    display: block;
+    margin-top: 2px;
+}
+
+.schedule-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    details.schedule-item > summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .schedule-details {
+        margin-left: 0;
+        padding: 15px 20px 20px;
+    }
+
+    .schedule-toolbar {
+        justify-content: stretch;
+    }
+
+    .schedule-toolbar .btn {
+        width: 100%;
+    }
+}
+
+@media print {
+    details.schedule-item > summary::after {
+        display: none;
+    }
+}
+
+/* Poster numbers in expanded sessions */
+.schedule-details .poster-num {
+    display: inline-block;
+    min-width: 52px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
